@@ -1,4 +1,9 @@
 class MovementsController < ApplicationController
+  
+  def index
+    @movements = Movement.all
+  end
+  
   def new
     @movement = Movement.new
   end
@@ -12,6 +17,12 @@ class MovementsController < ApplicationController
       flash[:alert] = "Please fill in all required fields. You may leave Weight field blank if using just body weight."
       redirect_to new_movement_path
     end
+  end
+
+  def destroy
+    Movement.destroy(params[:id])
+    redirect_to movements_path
+    flash[:notice] = "Movement successfully deleted!"
   end
 
   private
