@@ -1,0 +1,18 @@
+<h1>Great Work Getting Moving!</h1>
+<h2>Record your movement below:<h2>
+
+<%= form_with model: @movement, method: :post, local: true do |form| %>
+  <%= form.label :name_of_mover %>
+  <%= form.text_field :name_of_mover %>
+  <br>
+  <%= form.label :type_of_movement %>
+  <%= form.text_field :type_of_movement %>
+  <br>
+  <%= form.label :reps %>
+  <%= form.number_field :reps %>
+  <br>
+   <%= form.label :weight %>
+  <%= form.number_field :weight, step: 'any' %>
+  <br>
+  <%= form.submit "Record Movement" %>
+<% end %>
