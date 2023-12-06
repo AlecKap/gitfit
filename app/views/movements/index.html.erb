@@ -1,0 +1,67 @@
+<%#  create shared view and abstract form and styling %>
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 75%;
+  border: 2px solid #ddd;
+}
+
+th, td {
+  text-align: center;
+  border: 2px solid #ddd;
+  padding: 10px;
+}
+
+table.center {
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+div.center {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+</style>
+<h1>All Movements</h1>
+<br>
+<div class="center">
+  <%= turbo_frame_tag "record_movement" do %>
+    <%= button_to 'Record Movement', new_movement_path, method: :get %>
+  <% end %>
+</div>
+<br>
+<table class="center">
+  <tr>
+    <th>Name of Mover</th>
+    <th>Type of Movement</th>
+    <th>Reps</th>
+    <th>Weight</th>
+    <th>Moved At</th>
+    <th>Delete Movement</th>
+  </tr>
+  <% @movements.each do |movement| %>
+    <tr>
+      <td><%= movement.name_of_mover %></td>
+      <td><%= movement.type_of_movement %></td>
+      <td><%= movement.reps %></td>
+      <td><%= movement.weight %></td>
+      <td><%= movement.created_at.strftime("%m/%d/%Y %H:%M") %></td>
+      <td>
+        <%= button_to "Delete", movement, method: :delete, class: "delete-button" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
