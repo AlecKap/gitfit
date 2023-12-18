@@ -33,9 +33,14 @@ div.center {
 h1 {
   text-align: center;
 }
+
+h2 {
+  text-align: center;
+}
 </style>
 
 <h1>All Movements</h1>
+<h2>Total movement count so far: <%= Movement.count %></h2>
 <br>
 <div class="center">
   <%= turbo_frame_tag "record_movement" do %>
