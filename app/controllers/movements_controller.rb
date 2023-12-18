@@ -1,18 +1,29 @@
 class MovementsController < ApplicationController
   
   def index
+    # binding.pry
     @movements = Movement.all
     @ordered_movements = case params[:order]
       when 'name_of_mover'
         Movement.order(name_of_mover: :asc)
+      when 'name_of_mover_desc'
+        Movement.order(name_of_mover: :desc)
       when 'type_of_movement'
         Movement.order(type_of_movement: :asc)
+      when 'type_of_movement_desc'
+        Movement.order(type_of_movement: :desc)
       when 'reps'
         Movement.order(reps: :asc)
+      when 'reps_desc'
+        Movement.order(reps: :desc)
       when 'weight'
         Movement.order(weight: :asc)
+      when 'weight_desc'
+        Movement.order(weight: :desc)
       when 'created_at'
         Movement.order(created_at: :asc)
+      when 'created_at_desc'
+        Movement.order(created_at: :desc)
       else
         Movement.newest_first
       end
