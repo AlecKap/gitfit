@@ -45,11 +45,11 @@ h1 {
 <br>
 <table class="center">
   <tr>
-    <th><%= link_to "Name of Mover", movements_path(order: :name_of_mover) %></th>
-    <th><%= link_to "Type of Movement", movements_path(order: :type_of_movement) %></th>
-    <th><%= link_to "Reps", movements_path(order: :reps) %></th>
-    <th><%= link_to "Weight", movements_path(order: :weight) %></th>
-    <th><%= link_to "Moved At", movements_path(order: :created_at) %></th>
+    <th><%= link_to "Name of Mover", movements_path(order: :name_of_mover) %> <%= link_to "(desc)", movements_path(order: :name_of_mover_desc) %> </th>
+    <th><%= link_to "Type of Movement", movements_path(order: :type_of_movement) %> <%= link_to "(desc)", movements_path(order: :type_of_movement_desc) %></th>
+    <th><%= link_to "Reps", movements_path(order: :reps) %> <%= link_to "(desc)", movements_path(order: :reps_desc) %></th>
+    <th><%= link_to "Weight", movements_path(order: :weight) %> <%= link_to "(desc)", movements_path(order: :weight_desc) %> </th>
+    <th><%= link_to "Moved At", movements_path(order: :created_at) %> <%= link_to "(desc)", movements_path(order: :created_at_desc) %></th>
     <th>Delete Movement</th>
   </tr>
   <% @ordered_movements.each do |movement| %>
