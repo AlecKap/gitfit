@@ -1,4 +1,12 @@
-<h1>Welcome to GitFit<h1>
+<style>
+div.center {
+  text-align: center;
+}
+</style>
 
-<h2><%= link_to "Record a Movement", new_movement_path %></h2>
-<h2><%= link_to "View All Movements", movements_path %></h2>
+<div class="center">
+  <h1>Welcome to GitFit</h1>
+  <h2>So far there are <%= Movement.count %> total movements recorded! Are you ready to add to it?!</h2>
+  <h3><%= link_to "Record a Movement", new_movement_path %></h3>
+  <h3><%= link_to "View All Movements", movements_path %></h3>
+</div>
