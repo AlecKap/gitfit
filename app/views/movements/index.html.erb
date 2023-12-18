@@ -35,7 +35,6 @@ h1 {
 }
 </style>
 
-
 <h1>All Movements</h1>
 <br>
 <div class="center">
@@ -46,11 +45,11 @@ h1 {
 <br>
 <table class="center">
   <tr>
-    <th>Name of Mover</th>
-    <th>Type of Movement</th>
-    <th>Reps</th>
-    <th>Weight</th>
-    <th>Moved At</th>
+    <th><%= link_to "Name of Mover", movements_path(order: :name_of_mover) %></th>
+    <th><%= link_to "Type of Movement", movements_path(order: :type_of_movement) %></th>
+    <th><%= link_to "Reps", movements_path(order: :reps) %></th>
+    <th><%= link_to "Weight", movements_path(order: :weight) %></th>
+    <th><%= link_to "Moved At", movements_path(order: :created_at) %></th>
     <th>Delete Movement</th>
   </tr>
   <% @ordered_movements.each do |movement| %>
@@ -66,6 +65,4 @@ h1 {
     </tr>
   <% end %>
 </table>
-
-<%= pie_chart @movements.group(:type_of_movement).count %>
 
