@@ -1,6 +1,7 @@
 class MovementsController < ApplicationController
   
   def index
+    @ordered_movements = Movement.newest_first
     @movements = Movement.all
   end
   
