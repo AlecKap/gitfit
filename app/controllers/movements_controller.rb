@@ -1,8 +1,21 @@
 class MovementsController < ApplicationController
   
   def index
-    @ordered_movements = Movement.newest_first
     @movements = Movement.all
+    @ordered_movements = case params[:order]
+      when 'name_of_mover'
+        Movement.order(name_of_mover: :asc)
+      when 'type_of_movement'
+        Movement.order(type_of_movement: :asc)
+      when 'reps'
+        Movement.order(reps: :asc)
+      when 'weight'
+        Movement.order(weight: :asc)
+      when 'created_at'
+        Movement.order(created_at: :asc)
+      else
+        Movement.newest_first
+      end
   end
   
   def new
