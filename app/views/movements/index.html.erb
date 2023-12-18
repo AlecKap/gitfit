@@ -33,8 +33,9 @@ div.center {
 h1 {
   text-align: center;
 }
-
 </style>
+
+
 <h1>All Movements</h1>
 <br>
 <div class="center">
@@ -52,7 +53,7 @@ h1 {
     <th>Moved At</th>
     <th>Delete Movement</th>
   </tr>
-  <% @movements.each do |movement| %>
+  <% @ordered_movements.each do |movement| %>
     <tr>
       <td><%= movement.name_of_mover %></td>
       <td><%= movement.type_of_movement %></td>
@@ -65,3 +66,6 @@ h1 {
     </tr>
   <% end %>
 </table>
+
+<%= pie_chart @movements.group(:type_of_movement).count %>
+
