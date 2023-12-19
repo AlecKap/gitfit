@@ -48,6 +48,19 @@ h2 {
   <% end %>
 </div>
 <br>
+<div class="center">
+  <%= form_tag movements_path, method: :get, class: "filter-form" do %>
+    <label for="name_of_mover">Filter by Name of Mover:</label>
+    <%= select_tag :name_of_mover, options_for_select(Movement.pluck(:name_of_mover).uniq, params[:name_of_mover]), include_blank: true %>
+
+    <label for="type_of_movement">Filter by Type of Movement:</label>
+    <%= select_tag :type_of_movement, options_for_select(Movement.pluck(:type_of_movement).uniq, params[:type_of_movement]), include_blank: true %>
+
+    <%= submit_tag "Filter" %>
+  <% end %>
+  <%= link_to "Clear Filters", movements_path %>
+</div>
+<br>
 <table class="center">
   <tr>
     <th><%= link_to "Name of Mover", movements_path(order: :name_of_mover) %> <%= link_to "(desc)", movements_path(order: :name_of_mover_desc) %> </th>
